@@ -49,8 +49,13 @@ const startTimer = (e) => {
     totalSeconds = (hours * 3600) + (minutes * 60) + seconds
 
     if(totalSeconds === 0) {
-        
+        output.innerText = "Please enter your time you want to countdown!"
+        output.style.color = 'red'
+        return
     }
+
+    output.innerText = 'Time is countingdown!'
+    output.style.color = '#28a745'
 
     if(totalSeconds <= 0) {
         return
@@ -63,7 +68,11 @@ const startTimer = (e) => {
         } else {
             clearInterval(timerInterval)
             timerInterval = null
-            alert('Time out!')
+
+            resetTimer()
+
+            output.innerText = 'Time out!'
+            output.style.color = 'red'
         }
     }, 1000)
 }
@@ -82,6 +91,9 @@ const resetTimer = () => {
     minute1.value = '';
     second0.value = ''
     second1.value = ''
+
+    output.innerText = 'Time is reset'
+    output.style.color = "initial"    
 }
 
 btnStart.addEventListener('click', startTimer)
