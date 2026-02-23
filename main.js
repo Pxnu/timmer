@@ -12,8 +12,6 @@ let timemer = () => {
     let valH1 = hour1.value.trim()
     let valM0 = minute0.value.trim()
     let valM1 = minute1.value.trim()
-
-    
 }
 
 btnStart.addEventListener('click', timemer)
