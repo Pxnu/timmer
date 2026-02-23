@@ -6,12 +6,20 @@ let minute1 = document.querySelector('#minute1')
 const btnStart = document.querySelector('#btnStart')
 const btnReset = document.querySelector('#btnReset')
 
+let timerInterval = null
+let totalSeconds = 0
 
-let timemer = () => {
-    let valH0 = hour0.value.trim()
-    let valH1 = hour1.value.trim()
-    let valM0 = minute0.value.trim()
-    let valM1 = minute1.value.trim()
+const updateDisplay = () => {
+    let h = Math.floor(totalSeconds / 3600)
+    let m = Math.floor((totalSeconds % 3600) / 60)
+
+    let hStr = h.toString().padStart(2, "0")
+    let mStr = m.toString().padStart(2, "0")
+
+    hour0.value = hStr[0]
+    hour1.value = hStr[1]
+    minute0.value = mStr[0]
+    minute1.value = mStr[1]
 }
 
 btnStart.addEventListener('click', timemer)
