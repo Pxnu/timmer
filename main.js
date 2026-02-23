@@ -22,4 +22,39 @@ const updateDisplay = () => {
     minute1.value = mStr[1]
 }
 
-btnStart.addEventListener('click', timemer)
+const startTimer = (e) => {
+    if(timerInterval) {
+        clearInterval(timerInterval)
+    }
+
+    let valH0 = hour0.value.trim() || '0'
+    let valH1 = hour1.value.trim() || '0'
+    let valM0 = minute0.value.trim() || '0'
+    let valM1 = minute1.value.trim() || '0'
+    
+    let hours =  parseInt(valH0 + valH1)
+    let minutes = parseInt(valM0 + valM1)
+
+    totalSeconds = (hours * 3600) + (minutes * 60)
+
+    if(totalSeconds <= 0) {
+        return
+    }
+
+    timerInterval = setInterval(() => {
+        if(totalSeconds > 0) {
+            totalSeconds--
+            updateDisplay()
+        } else {
+            clearInterval(timerInterval)
+            timerInterval = null
+            alert('Time out!')
+        }
+    }, 1000)
+}
+
+const resetTimer = () => {
+    
+}
+
+btnStart.addEventListener('click', startTimer)
