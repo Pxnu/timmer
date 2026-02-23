@@ -8,6 +8,8 @@ let second1 = document.querySelector('#second1');
 const btnStart = document.querySelector('#btnStart')
 const btnReset = document.querySelector('#btnReset')
 
+let output = document.querySelector('#output')
+
 let timerInterval = null
 let totalSeconds = 0
 
@@ -45,6 +47,10 @@ const startTimer = (e) => {
     let seconds = parseInt(valS0 + valS1)
 
     totalSeconds = (hours * 3600) + (minutes * 60) + seconds
+
+    if(totalSeconds === 0) {
+        
+    }
 
     if(totalSeconds <= 0) {
         return
