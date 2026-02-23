@@ -29,13 +29,13 @@ label[for="Header"] h3 {
     letter-spacing: 2px;
 }
 
-/* จัดกลุ่มช่องกรอกเวลาให้อยู่แนวนอน */
-.Hours, .Minutes, .container > div:nth-child(3) {
+/* จัดกลุ่มช่องกรอกเวลาให้อยู่แนวนอน และเพิ่ม .Seconds เข้าไป */
+.Hours, .Minutes, .Seconds, .colon {
     display: inline-block;
     vertical-align: middle;
 }
 
-.Hours, .Minutes {
+.Hours, .Minutes, .Seconds {
     display: inline-flex;
     gap: 8px;
 }
